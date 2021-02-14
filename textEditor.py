@@ -49,7 +49,7 @@ filemenu.add_command(label="Much save as", command=saveAs)
 filemenu.add_separator()
 filemenu.add_command(label="Wow, Quit", command=root.quit)
 
-menubar.add_cascade(filemenu)
+menubar.add_cascade(label='File', menu=filemenu)
 
 root.config(menu=menubar)
 
