@@ -1,4 +1,4 @@
-from tkinter import Message
+from tkinter import Message, Widget
 from tkinter.constants import END
 from tk import *
 import tkinter.filedialog
@@ -31,3 +31,7 @@ def openFile():
     text.delete(0.0, END)
     text.insert(0.0, t)
 
+root = Tk()
+root.title("My Python Text Editor")
+root.minsize(width=400, height=400)
+root.maxsize(width=400, height=400)
