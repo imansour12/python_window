@@ -7,7 +7,8 @@ from PIL import ImageTk,Image
   
 # creates a Tk() object 
 master = Tk() 
-
+#sets icon to ball
+master.iconbitmap("ball.ico")
 # sets the geometry of main  
 # root window 
 master.geometry("400x400") 
@@ -23,14 +24,19 @@ def openNewWindow():
   
     # sets the title of the 
     # Toplevel widget 
-    newWindow.title("New Window") 
+    newWindow.title("Wow, New window") 
   
     # sets the geometry of toplevel 
-    newWindow.geometry("200x200") 
+    newWindow.geometry("400x400") 
   
     # A Label widget to show in toplevel 
     Label(newWindow,  
           text ="Wow! Much window!").pack() 
+    #shows ball
+    canvas = Canvas(master, width = 300, height = 300)  
+    canvas.pack()  
+    img = ImageTk.PhotoImage(Image.open("ball.png"))  
+    canvas.create_image(20, 20, anchor=NW, image=img) 
   
   
 label = Label(master,  
