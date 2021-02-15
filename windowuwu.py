@@ -1,9 +1,9 @@
-
 # This will import all the widgets 
 # and modules which are available in 
 # tkinter and ttk module 
 from tkinter import * 
 from tkinter.ttk import *
+from PIL import ImageTk,Image  
   
 # creates a Tk() object 
 master = Tk() 
@@ -30,21 +30,30 @@ def openNewWindow():
   
     # A Label widget to show in toplevel 
     Label(newWindow,  
-          text ="This is a new window").pack() 
+          text ="Wow! Much window!").pack() 
   
   
 label = Label(master,  
-              text ="This is the main window") 
+              text ="This is stronk window") 
   
 label.pack(pady = 10) 
   
 # a button widget which will open a  
 # new window on button click 
 btn = Button(master,  
-             text ="Click to open a new window",  
+             text ="Much open",  
              command = openNewWindow) 
 btn.pack(pady = 10) 
 
+#canvas = Canvas(root, width = 300, height = 300)      
+#canvas.pack()      
+#img = PhotoImage(file="ball.ppm")      
+#canvas.create_image(20,20, anchor=NW, image=img)   
+
+canvas = Canvas(master, width = 300, height = 300)  
+canvas.pack()  
+img = ImageTk.PhotoImage(Image.open("ball.png"))  
+canvas.create_image(20, 20, anchor=NW, image=img) 
 
 menubar = Menu(master)
 filemenu = Menu(menubar)
