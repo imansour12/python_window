@@ -4,7 +4,8 @@
 from tkinter import * 
 from tkinter.ttk import *
 from PIL import ImageTk,Image  
-  
+from tkinter import messagebox
+
 # creates a Tk() object 
 master = Tk() 
 #sets icon to ball
@@ -12,6 +13,11 @@ master.iconbitmap("ball.ico")
 # sets the geometry of main  
 # root window 
 master.geometry("400x400") 
+
+
+#defines name 'window'
+window = Tk()
+
   
   
 # function to open a new window  
@@ -51,15 +57,23 @@ btn = Button(master,
              command = openNewWindow) 
 btn.pack(pady = 10) 
 
-#canvas = Canvas(root, width = 300, height = 300)      
-#canvas.pack()      
-#img = PhotoImage(file="ball.ppm")      
-#canvas.create_image(20,20, anchor=NW, image=img)   
+
+#Shows the click for ball part
+def clicked():
+
+    messagebox.showinfo('Click for ball', 'Ball')
+    window.geometry('350x200')
+btn = Button(window,text='Click here for ball', command=clicked)
+btn.grid(column=0,row=0)
+
+
 
 canvas = Canvas(master, width = 300, height = 300)  
 canvas.pack()  
 img = ImageTk.PhotoImage(Image.open("ball.png"))  
 canvas.create_image(20, 20, anchor=NW, image=img) 
+
+
 
 menubar = Menu(master)
 filemenu = Menu(menubar)
